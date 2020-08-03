@@ -1,13 +1,17 @@
 #include <stdio.h>
 #include "arrange.h"
 
-void arrangeGrid(float pageWidth, float pageHeight,
+void arrangeGrid(float pageWidth, float pageHeight, float margin,
 		float itemWidth, float itemHeight,
 		struct arrangement *arrange) {
-	arrange->itemsX = (int)(pageWidth / itemWidth);
-	arrange->itemsY = (int)(pageHeight / itemHeight);
+	float usablePageWidth = pageWidth - margin * 2;
+	float usablePageHeight = pageHeight - margin * 2;
 
+	arrange->itemsX = (int)(usablePageWidth / itemWidth);
+	arrange->itemsY = (int)(usablePageHeight / itemHeight);
 
-	arrange->separationX = (pageWidth - (itemWidth * arrange->itemsX)) / arrange->itemsX + itemWidth;
-	arrange->separationY = (pageHeight - (itemHeight * arrange->itemsY)) / arrange->itemsY + itemHeight;
+	arrange->separationX = (usablePageWidth - (itemWidth * arrange->itemsX)) / arrange->itemsX + itemWidth;
+	arrange->separationY = (usablePageHeight - (itemHeight * arrange->itemsY)) / arrange->itemsY + itemHeight;
+
+	arrange->margin = margin;
 }
