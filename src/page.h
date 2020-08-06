@@ -1,6 +1,8 @@
 #ifndef PAGE_H
 #define PAGE_H
 
+#include <uuid/uuid.h>
+#include <zint.h>
 #include <pdfgen.h>
 #include "arrange.h"
 

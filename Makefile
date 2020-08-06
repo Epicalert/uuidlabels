@@ -1,4 +1,4 @@
-CFLAGS=-Ilib/pdfgen -luuid
+CFLAGS=-Ilib/pdfgen -luuid -lzint
 OBJS=lib/pdfgen/pdfgen.o src/main.o src/arrange.o src/page.o
 
 uuidlabels: $(OBJS)
