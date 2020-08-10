@@ -24,7 +24,7 @@ void makePage(struct pdf_doc *pdf, struct arrangement arrange) {
 			pdf_add_rgb24(pdf, NULL,
 					x * arrange.separationX + arrange.margin,
 					y * arrange.separationY + arrange.margin,
-				       	72, 72, barcode->bitmap,
+				       	arrange.sizeX, arrange.sizeY, barcode->bitmap,
 					barcode->bitmap_width, barcode->bitmap_height);
 		}
 	}

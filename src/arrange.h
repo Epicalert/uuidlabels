@@ -8,6 +8,8 @@ struct arrangement {
 	int itemsY;		//number of items that can fit on the page
 	float separationX;	//space between items on X (including item size)
 	float separationY;	//space between items on Y (including item size)
+	float sizeX;		//size of one item on X
+	float sizeY;		//size of one item on Y
 	float margin;		//page margin
 };
 

@@ -5,12 +5,17 @@
 
 #include "arrange.h"
 #include "page.h"
+#include "args.h"
 
-int main() {
+int main(int argc, char **argv) {
+	struct arguments args = defaultArgs();
+	parseArgs(argc, argv, &args);
+
 	struct arrangement arrange;
-	struct pdf_doc *pdf = pdf_create(PDF_A4_WIDTH, PDF_A4_HEIGHT, NULL);
+	struct pdf_doc *pdf = pdf_create(args.pageX, args.pageY, NULL);
 
-	arrangeGrid(PDF_A4_WIDTH, PDF_A4_HEIGHT, 8, 72, 72, &arrange);
+	arrangeGrid(args.pageX, args.pageY, 8,
+			args.labelSize, args.labelSize, &arrange);
 
 	printf("grid size: %i x %i\n", arrange.itemsX, arrange.itemsY);
 	printf("total items: %i\n", arrange.itemsX * arrange.itemsY);

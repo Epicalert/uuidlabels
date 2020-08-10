@@ -1,5 +1,5 @@
 CFLAGS=-Ilib/pdfgen -luuid -lzint
-OBJS=lib/pdfgen/pdfgen.o src/main.o src/arrange.o src/page.o
+OBJS=lib/pdfgen/pdfgen.o src/main.o src/arrange.o src/page.o src/args.o
 
 uuidlabels: $(OBJS)
 	$(CC) -o $@ $^ $(CFLAGS)
