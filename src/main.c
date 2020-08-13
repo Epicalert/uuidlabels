@@ -14,7 +14,7 @@ int main(int argc, char **argv) {
 	struct arrangement arrange;
 	struct pdf_doc *pdf = pdf_create(args.pageX, args.pageY, NULL);
 
-	arrangeGrid(args.pageX, args.pageY, 8,
+	arrangeGrid(args.pageX, args.pageY, args.margin,
 			args.labelSize, args.labelSize, &arrange);
 
 	printf("grid size: %i x %i\n", arrange.itemsX, arrange.itemsY);

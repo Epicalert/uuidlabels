@@ -1,10 +1,11 @@
 #include "args.h"
 #include <stdio.h>
 
-//TODO: add margin
+//TODO: support for different units
 static struct argp_option options[] = {
 	{"label-size",	's',	"pt",	0,	"Size of each label in pt"},
 	{"page-size",	'p',	"size",	0,	"Size of the page (A4, Letter)"},
+	{"margin",	'm',	"pt",	0,	"Size of the margin in pt"},
 	{0}
 };
 
@@ -18,14 +19,16 @@ static error_t parse_opt(int key, char *arg, struct argp_state *state) {
 		case 'p':
 			//TODO: make code less bad
 			if (strcasecmp(arg,"A4") == 0) {
-				printf("a4!\n");
 				arguments->pageX = PDF_A4_WIDTH;
 				arguments->pageY = PDF_A4_HEIGHT;
 			} else if (strcasecmp(arg,"Letter") == 0) {
-				printf("letter!\n");
 				arguments->pageX = PDF_LETTER_WIDTH;
 				arguments->pageY = PDF_LETTER_HEIGHT;
 			}
+			break;
+		case 'm':
+			//TODO: parse these as float
+			arguments->margin = atoi(arg);
 			break;
 			
 		case ARGP_KEY_END:
@@ -46,6 +49,7 @@ struct arguments defaultArgs() {
 	arguments.labelSize = 72;
 	arguments.pageX = PDF_A4_WIDTH;
 	arguments.pageY = PDF_A4_HEIGHT;
+	arguments.margin = 8;
 
 	return arguments;
 }

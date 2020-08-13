@@ -10,6 +10,7 @@ struct arguments {
 	int labelSize;
 	float pageX;
 	float pageY;
+	int margin;
 };
 
 struct arguments defaultArgs();

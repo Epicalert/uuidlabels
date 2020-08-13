@@ -1,7 +1,6 @@
 #ifndef ARRANGE_H
 #define ARRANGE_H
 
-//TODO: add item size to arrangement
 //holds information for arranging the images in a grid pattern
 struct arrangement {
 	int itemsX;		//number of items that can fit on the page
